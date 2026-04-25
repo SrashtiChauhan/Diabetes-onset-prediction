@@ -20,6 +20,12 @@ A Machine Learning-powered web application that predicts the likelihood of diabe
 
 ---
 
+
+<!-- <p align="center">
+  <img src="assets/ui.png" width="45%"/>
+  <img src="assets/ui2.png" width="45%"/>
+</p> -->
+
 ## 🚀 Features
 
 * 🔍 Diabetes prediction using **XGBoost**
