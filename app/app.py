@@ -4,33 +4,25 @@ import numpy as np
 
 app = Flask(__name__)
 
-# ==============================
-# LOAD MODEL + FILES
-# ==============================
+# load files and models
 model = joblib.load("../model/xgb_model.pkl")
 threshold = joblib.load("../model/threshold.pkl")
 feature_order = joblib.load("../model/feature_order.pkl")  # saved during training
 
 
-# ==============================
-# HOME ROUTE
-# ==============================
+# route
 @app.route("/")
 def home():
     return "Diabetes Prediction API is running 🚀"
 
 
-# ==============================
-# PREDICTION ROUTE
-# ==============================
+# prediction route
 @app.route("/predict", methods=["POST"])
 def predict():
 
     data = request.json
 
-    # ==============================
-    # INPUT VALIDATION
-    # ==============================
+    # input validation
     required_fields = [
         "Pregnancies", "Glucose", "BloodPressure", "SkinThickness",
         "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"
@@ -63,9 +55,7 @@ def predict():
         return jsonify({"error": "Age out of range"}), 400
 
 
-    # ==============================
-    # FEATURE ENGINEERING
-    # ==============================
+    # feature engineering
 
     # BMI Category
     if bmi < 18.5:
@@ -100,9 +90,7 @@ def predict():
     high_bp = 1 if bp > 80 else 0
 
 
-    # ==============================
-    # BUILD INPUT USING FEATURE ORDER
-    # ==============================
+    # feature order
     input_dict = {
         "Pregnancies": pregnancies,
         "Glucose": glucose,
@@ -122,18 +110,14 @@ def predict():
     features = np.array([[input_dict[col] for col in feature_order]])
 
 
-    # ==============================
-    # PREDICTION
-    # ==============================
+    # prediction
     prob = model.predict_proba(features)[0][1]
     prediction = int(prob > threshold)
 
     result = "Diabetic" if prediction == 1 else "Not Diabetic"
 
 
-    # ==============================
-    # RESPONSE
-    # ==============================
+    # output result
     return jsonify({
     "prediction": prediction,  
     "label": result,           
@@ -141,8 +125,6 @@ def predict():
 })
 
 
-# ==============================
-# RUN APP
-# ==============================
+
 if __name__ == "__main__":
     app.run(debug=True)

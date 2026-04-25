@@ -5,16 +5,12 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 
-# =========================
-# CONFIG
-# =========================
+# config
 API_URL = "http://127.0.0.1:5000/predict"
 
 st.set_page_config(page_title="Diabetes Predictor", layout="centered")
 
-# =========================
-# CUSTOM CSS (🔥 premium UI)
-# =========================
+# css 
 st.markdown("""
     <style>
     .main {
@@ -30,9 +26,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# =========================
-# GAUGE FUNCTION
-# =========================
+# guage function
 def create_gauge(prob):
     color = "green" if prob < 0.3 else "orange" if prob < 0.6 else "red"
 
@@ -52,9 +46,7 @@ def create_gauge(prob):
     ))
     return fig
 
-# =========================
-# PDF GENERATOR
-# =========================
+# pdf generator
 def generate_pdf(result, prob, data):
     file_path = "diabetes_report.pdf"
 
@@ -78,15 +70,11 @@ def generate_pdf(result, prob, data):
     doc.build(content)
     return file_path
 
-# =========================
-# TITLE
-# =========================
+# title
 st.title("🩺 Diabetes Risk Prediction System")
 st.write("Enter patient details to predict diabetes risk")
 
-# =========================
-# INPUT FORM
-# =========================
+#input form
 col1, col2 = st.columns(2)
 
 with col1:
@@ -101,9 +89,7 @@ with col2:
     dpf = st.number_input("Diabetes Pedigree Function", 0.0, 2.5)
     age = st.number_input("Age", 1, 120)
 
-# =========================
-# INPUT VALIDATION
-# =========================
+# input validation
 def validate_inputs():
     if glucose == 0 or bmi == 0:
         st.error("⚠️ Glucose and BMI cannot be 0")
@@ -113,9 +99,7 @@ def validate_inputs():
         return False
     return True
 
-# =========================
-# PREDICTION
-# =========================
+# prediction
 if st.button("🔍 Predict Risk"):
 
     if not validate_inputs():
