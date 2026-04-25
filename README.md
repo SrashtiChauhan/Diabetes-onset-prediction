@@ -39,6 +39,24 @@ A Machine Learning-powered web application that predicts the likelihood of diabe
 
 ---
 
+## 📊 Model Comparison
+
+| Model                         | Accuracy | Precision (Diabetic) | Recall (Diabetic) | F1 Score | ROC-AUC |
+|------------------------------|----------|----------------------|-------------------|----------|--------|
+| XGBoost (Threshold=0.30)     | 0.74     | 0.59                 | 0.89              | 0.71     | 0.82   |
+| XGBoost                      | 0.75     | 0.62                 | 0.72              | 0.67     | 0.82   |
+| Random Forest                | 0.76     | 0.67                 | 0.61              | 0.64     | 0.82   |
+| Logistic Regression          | 0.73     | 0.59                 | 0.70              | 0.64     | 0.81   |
+
+📌 In medical applications, recall is prioritized to minimize false negatives (missing diabetic cases).
+
+📌 Threshold tuning improved recall for diabetic cases, making the model more suitable for medical risk prediction.
+
+📌Final model used: **XGBoost with threshold tuning (0.30)**
+
+---
+
+
 ## 🧠 Machine Learning Details
 
 * **Model:** XGBoost Classifier
