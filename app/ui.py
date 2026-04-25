@@ -143,9 +143,7 @@ if st.button("🔍 Predict Risk"):
             else:
                 st.error("High Risk → Consult doctor immediately 🚨")
 
-            # =========================
-            # PDF DOWNLOAD
-            # =========================
+            # pdf download
             pdf_path = generate_pdf(label, prob, input_data)
 
             with open(pdf_path, "rb") as file:
