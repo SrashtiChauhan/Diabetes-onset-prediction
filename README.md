@@ -48,6 +48,7 @@ A Machine Learning-powered web application that predicts the likelihood of diabe
 | Random Forest                | 0.76     | 0.67                 | 0.61              | 0.64     | 0.82   |
 | Logistic Regression          | 0.73     | 0.59                 | 0.70              | 0.64     | 0.81   |
 
+---
 📌 In medical applications, recall is prioritized to minimize false negatives (missing diabetic cases).
 
 📌 Threshold tuning improved recall for diabetic cases, making the model more suitable for medical risk prediction.
