@@ -1,5 +1,21 @@
 # 🩺 Diabetes Onset Prediction System
 
+<!-- ================= BADGES ================= -->
+<p align="center">
+
+<img src="https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python&logoColor=yellow" />
+<img src="https://img.shields.io/badge/Model-XGBoost-orange?style=for-the-badge&logo=databricks&logoColor=white" />
+<img src="https://img.shields.io/badge/UI-Streamlit-red?style=for-the-badge&logo=streamlit&logoColor=white" />
+<img src="https://img.shields.io/badge/API-Flask-black?style=for-the-badge&logo=flask&logoColor=white" />
+
+<br/>
+
+<img src="https://img.shields.io/github/stars/SrashtiChauhan/Diabetes-onset-prediction?style=social" />
+<img src="https://img.shields.io/github/forks/SrashtiChauhan/Diabetes-onset-prediction?style=social" />
+<img src="https://img.shields.io/github/last-commit/SrashtiChauhan/Diabetes-onset-prediction?style=flat-square" />
+
+</p>
+
 A Machine Learning-powered web application that predicts the likelihood of diabetes using patient health parameters.
 
 ---
